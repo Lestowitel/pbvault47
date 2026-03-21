@@ -1,91 +1,75 @@
 <!DOCTYPE html>
 <link rel="stylesheet" href="fallout.css">
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Pip-Boy Companion</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/fallout.css">
-    <link rel="icon" href="./fallout-boy.png">
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-stone-800 fo-selection fo-ui">
+<!-- SEZIONE PRINCIPALE - MENU STAT / INV / DATA / RADIO -->
+<div class="p-4 flex flex-col items-center justify-center gap-6 min-h-screen bg-terminal">
 
-    <!-- MENU -->
-    <nav class="fo-tabs fo-glow flex gap-2 p-2">
+    <!-- AP Bars -->
+    <div class="flex flex-wrap justify-center gap-4">
+        <h2 class="text-2xl font-bold fg-pb fo-glow">AP 100/100</h2>
+        <h2 class="text-2xl font-bold fg-pb fo-blue fo-glow">AP 100/100</h2>
+        <h2 class="text-2xl font-bold fg-pb fo-amber fo-glow">AP 100/100</h2>
+        <h2 class="text-2xl font-bold fg-pb fo-white fo-glow">AP 100/100</h2>
+    </div>
+
+    <!-- Tabs principale -->
+    <div role="tablist" class="fo-tabs fo-glow flex justify-center gap-2">
         <a role="tab" class="fo-tab fo-tab-active">STAT</a>
         <a role="tab" class="fo-tab">INV</a>
         <a role="tab" class="fo-tab">DATA</a>
         <a role="tab" class="fo-tab">RADIO</a>
-    </nav>
+    </div>
 
-    <!-- SEZIONI SPA -->
-   <main class="p-4 flex flex-col items-center justify-center gap-6 min-h-screen bg-terminal">
+    <!-- Contenuto sezione (esempio demo) -->
+    <div id="stat-section" class="section bg-pb fg-pb fo-terminal fo-glow p-4 w-full max-w-3xl text-center">
+        <p>Benvenuto nella sezione STAT!</p>
+        <p>Qui puoi visualizzare punti azione, attributi e statistiche del tuo personaggio.</p>
+    </div>
 
-        <!-- STAT -->
-        <div id="stat-section" class="section">
-            <h2 class="text-2xl font-bold fg-pb fo-glow">AP 100/100</h2>
-            <div class="text-lg fo-terminal bg-pb fg-pb fo-glow p-1">
-                <p>Questa è la sezione STAT del Pip-Boy!</p>
-            </div>
-        </div>
+    <div id="inv-section" class="section bg-pb fg-pb fo-terminal fo-glow p-4 w-full max-w-3xl text-center" style="display:none;">
+        <p>Benvenuto nella sezione INVENTARIO!</p>
+        <ul class="fo-list fg-pb fo-glow">
+            <li>Minigun</li>
+            <li>Plasma Rifle</li>
+            <li>Missile Launcher</li>
+        </ul>
+    </div>
 
-        <!-- INV -->
-        <div id="inv-section" class="section" style="display:none;">
-            <h2 class="text-2xl font-bold fg-pb fo-glow">INVENTARIO</h2>
-            <ul class="fo-list fg-pb fo-glow">
-                <li>Minigun</li>
-                <li>Plasma Rifle</li>
-                <li>Missile Launcher</li>
-            </ul>
-        </div>
+    <div id="data-section" class="section bg-pb fg-pb fo-terminal fo-glow p-4 w-full max-w-3xl text-center" style="display:none;">
+        <p>Benvenuto nella sezione DATA / Terminali!</p>
+        <p>Qui puoi aggiungere quest, NPC e terminali.</p>
+    </div>
 
-        <!-- DATA -->
-        <div id="data-section" class="section" style="display:none;">
-            <h2 class="text-2xl font-bold fg-pb fo-glow">DATA / Terminali</h2>
-            <div class="text-lg fo-terminal bg-pb fg-pb fo-glow p-1">
-                <p>Qui puoi inserire terminali, quest e informazioni NPC.</p>
-            </div>
-        </div>
+    <div id="radio-section" class="section bg-pb fg-pb fo-terminal fo-glow p-4 w-full max-w-3xl text-center" style="display:none;">
+        <p>Benvenuto nella sezione RADIO!</p>
+        <audio controls>
+            <source src="audio/station1.mp3" type="audio/mpeg">
+            Il tuo browser non supporta l'elemento audio.
+        </audio>
+    </div>
 
-        <!-- RADIO -->
-        <div id="radio-section" class="section" style="display:none;">
-            <h2 class="text-2xl font-bold fg-pb fo-glow">RADIO</h2>
-            <div class="text-lg fo-terminal bg-pb fg-pb fo-glow p-1">
-                <p>Qui puoi inserire le stazioni radio o file audio per i giocatori.</p>
-                <audio controls>
-                    <source src="audio/station1.mp3" type="audio/mpeg">
-                    Your browser does not support the audio element.
-                </audio>
-            </div>
-        </div>
+</div>
 
-    </main>
+<!-- Script per attivare i tab -->
+<script>
+    const tabs = document.querySelectorAll('.fo-tab');
+    const sections = {
+        'stat': document.getElementById('stat-section'),
+        'inv': document.getElementById('inv-section'),
+        'data': document.getElementById('data-section'),
+        'radio': document.getElementById('radio-section')
+    };
 
-    <!-- SCRIPT SPA -->
-    <script>
-        const tabs = document.querySelectorAll('.fo-tab');
-        const sections = {
-            'stat': document.getElementById('stat-section'),
-            'inv': document.getElementById('inv-section'),
-            'data': document.getElementById('data-section'),
-            'radio': document.getElementById('radio-section')
-        };
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            // aggiorna tab attivo
+            tabs.forEach(t => t.classList.remove('fo-tab-active'));
+            tab.classList.add('fo-tab-active');
 
-        tabs.forEach(tab => {
-            tab.addEventListener('click', () => {
-                // aggiorna tab attivo
-                tabs.forEach(t => t.classList.remove('fo-tab-active'));
-                tab.classList.add('fo-tab-active');
-
-                // mostra la sezione corretta e nasconde le altre
-                const key = tab.textContent.toLowerCase();
-                Object.keys(sections).forEach(k => {
-                    sections[k].style.display = (k === key) ? 'block' : 'none';
-                });
+            // mostra la sezione corretta e nasconde le altre
+            const key = tab.textContent.toLowerCase();
+            Object.keys(sections).forEach(k => {
+                sections[k].style.display = (k === key) ? 'block' : 'none';
             });
         });
-    </script>
-
-</body>
-</html>
+    });
+</script>
