@@ -27,40 +27,14 @@
         </div>
         <div class="flex flex-wrap gap-2">
             <button class="fo-btn fo-shadow">Button</button>
-           
+           <a href="terminal.html" class="fo-btn fo-shadow">Terminal</a>
         </div>
         <ul class="fo-list fg-pb fo-glow">
             <li>Minigun</li>
             <li>Plasma Rifle</li>
             <li>Missile Launcher</li>
         </ul>
-        <!-- DATA SECTION -->
-<div id="data-section" class="section bg-pb fg-pb fo-terminal fo-glow p-4 w-full max-w-3xl text-left" style="display:none;">
-
-    <!-- Sottotabs DATA -->
-    <div role="tablist" class="fo-tabs fo-glow flex flex-wrap gap-2 mb-4">
-        <a role="tab" class="fo-subtab fo-subtab-active" data-target="local-map">Local Map</a>
-        <a role="tab" class="fo-subtab" data-target="world-map">World Map</a>
-        <a role="tab" class="fo-subtab" data-target="quests">Quests</a>
-        <a role="tab" class="fo-subtab" data-target="notes">Notes</a>
-    </div>
-
-    <!-- Contenuti sottosezioni -->
-    <div id="local-map" class="data-content fo-terminal fo-glow" style="display:block;">
-        <p><strong>Local Map</strong> - Shows a detailed map of the user's local area. Only explored areas appear.</p>
-    </div>
-    <div id="world-map" class="data-content fo-terminal fo-glow" style="display:none;">
-        <p><strong>World Map</strong> - Shows a map of the area. Locations discovered are marked; new locations appear when found. Markers guide the user to quest destinations, with secondary selectable markers and companion positions shown.</p>
-    </div>
-    <div id="quests" class="data-content fo-terminal fo-glow" style="display:none;">
-        <p><strong>Quests</strong> - Shows any active or completed quests. Selecting a quest makes it active; markers appear on the local and world maps.</p>
-    </div>
-    <div id="notes" class="data-content fo-terminal fo-glow" style="display:none;">
-        <p><strong>Notes</strong> - Keeps a record of discovered notes. Paper notes can be read, and holotapes can be played here.</p>
-    </div>
-
-</div>
-
+        
 <!-- Script per sottotabs DATA -->
 <script>
     const subTabs = document.querySelectorAll('.fo-subtab');
