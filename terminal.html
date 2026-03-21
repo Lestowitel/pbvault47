@@ -13,8 +13,9 @@
         
   <div id="terminal" class="bg-black bg-terminal fo-terminal text-2xl p-6 fg-pb fo-glow w-full h-full overflow-y-auto">
     <div id="output" class="whitespace-pre-wrap leading-tight"> 
-    </div>
-        <p>Welcome to ROBCO Industries (TM) Termlink</p>
+    </div></div>
+        <script>
+const text = `Welcome to ROBCO Industries (TM) Termlink</p>
         <p>Password Required</p>
         <p>Attempts Remaining: ■ ■ ■ ■</p>
         <div class="flex flex-col gap-2">
@@ -56,87 +57,27 @@ Stato iniziale:
 Unità non ostile.
 Sovrintendente RICHARD neutralizzato temporaneamente
 (trauma non letale).
+`;
 
+const output = document.getElementById("output");
+const terminal = document.getElementById("terminal");
 
+let i = 0;
 
-                </p>
-                <p>
-                    <span>0xBD70</span>
-                    <span>/_:{_([|]"'%</span>
-                </p>
+function typeWriter() {
+    if (i < text.length) {
+        output.textContent += text.charAt(i);
+        i++;
 
-                <p>
-                    <span>0xBCB0</span>
-                    <span>`TAKES%_%%],</span>
-                </p>
-                <p>
-                    <span>0xBD7C</span>
-                    <span>!?%><,=%#<(C</span>
-                </p>
+        // auto scroll
+        terminal.scrollTop = terminal.scrollHeight;
 
-                <p>
-                    <span>0xBCC8</span>
-                    <span>$<+%!(.$@=`{</span>
-                </p>
-                <p>
-                    <span>0xBD7C</span>
-                    <span>LOSE><**'$*<</span>
-                </p>
+        setTimeout(typeWriter, 10); // velocità (più basso = più veloce)
+    }
+}
 
-                <p>
-                    <span>0xBCD4</span>
-                    <span>=`=<),!+:}"[</span>
-                </p>
-                <p>
-                    <span>0xBD94</span>
-                    <span>,_,@_-{<"?'$</span>
-                </p>
-
-                <p>
-                    <span>0xBCE0</span>
-                    <span>*/KNOWN.]]-{</span>
-                </p>
-                <p>
-                    <span>0xBDA0</span>
-                    <span>!\}SWORD>-"$</span>
-                </p>
-
-                <p>
-                    <span>0xBCEC</span>
-                    <span>%+|KICKS%=$*</span>
-                </p>
-                <p>
-                    <span>0xBDAC</span>
-                    <span>(SLAVE_{>{-`</span>
-                </p>
-
-                <p>
-                    <span>0xBCF8</span>
-                    <span>:'@+()\%{"_=</span>
-                </p>
-                <p>
-                    <span>0xBDB8</span>
-                    <span>?`/-`*_<:*@)</span>
-                </p>
-
-                <p>
-                    <span>0xBD04</span>
-                    <span>+-+#';STARK^</span>
-                </p>
-                <p>
-                    <span>0xBDC4</span>
-                    <span>/\|?>>{,_;FA</span>
-                </p>
-            </div>
-            <div class="whitespace-pre-line">
-                >KNOWN
-                >Entry denied.
-                >Likeness=0
-                >LOSE
-                >Entry denied.
-                >Likeness=2
-                >SWORD
-            </div>
+typeWriter();
+</script>
         </div>
     </div>
     <script>
