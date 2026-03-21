@@ -1,132 +1,58 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Pip-Boy Companion</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="./fallout.css" />
 
-    <!-- Icon -->
-    <link rel="icon" href="./fallout-boy.png">
-
-    <!-- CSS Fallout.css -->
-    <link rel="stylesheet" href="fallout.css">
-
-    <!-- Tailwind (per layout) -->
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-stone-800 fo-selection fo-ui">
-
-    <!-- MAIN CONTAINER -->
-    <main class="p-4 space-y-6 bg-terminal flex flex-col items-center justify-center min-h-screen">
-
-        <!-- AP Bars -->
-        <div class="flex flex-wrap justify-center gap-4">
-            <h2 class="text-2xl font-bold fg-pb fo-glow">AP 100/100</h2>
-            <h2 class="text-2xl font-bold fg-pb fo-blue fo-glow">AP 100/100</h2>
-            <h2 class="text-2xl font-bold fg-pb fo-amber fo-glow">AP 100/100</h2>
-            <h2 class="text-2xl font-bold fg-pb fo-white fo-glow">AP 100/100</h2>
-        </div>
-
-        <!-- MENU TAB -->
-        <div role="tablist" class="fo-tabs fo-glow flex justify-center gap-2">
-            <a role="tab" class="fo-tab fo-tab-active">STAT</a>
-            <a role="tab" class="fo-tab">INV</a>
-            <a role="tab" class="fo-tab">DATA</a>
-            <a role="tab" class="fo-tab">RADIO</a>
-        </div>
-
-        <!-- SEZIONI -->
-        <!-- STAT -->
-        <div id="stat-section" class="section bg-pb fg-pb fo-terminal fo-glow p-4 w-full max-w-3xl text-center">
-            <p>Benvenuto nella sezione STAT!</p>
-            <p>Qui puoi visualizzare punti azione, attributi e statistiche del tuo personaggio.</p>
-
-            <!-- Bottoni demo -->
-            <div class="flex flex-wrap justify-center items-center gap-4 my-4">
-                <button class="fo-btn fo-shadow text-2xl px-6 py-3">Button</button>
-                <button class="fo-btn fo-blue fo-shadow text-2xl px-6 py-3">Button</button>
-                <button class="fo-btn fo-amber fo-shadow text-2xl px-6 py-3">Button</button>
-                <button class="fo-btn fo-white fo-shadow text-2xl px-6 py-3">Button</button>
-            </div>
-
-            <!-- Lista inventario demo -->
-            <ul class="fo-list fg-pb fo-glow">
-                <li>Minigun</li>
-                <li>Plasma Rifle</li>
-                <li>Missile Launcher</li>
-            </ul>
-
-            <!-- Progress bar demo -->
-            <div class="flex flex-wrap gap-4 justify-center my-4">
-                <progress class="w-56 fo-progress fo-shadow" value="5" max="10"></progress>
-                <progress class="w-56 fo-progress fo-blue fo-shadow" value="5" max="10"></progress>
-                <progress class="w-56 fo-progress fo-amber fo-shadow" value="5" max="10"></progress>
-                <progress class="w-56 fo-progress fo-white fo-shadow" value="5" max="10"></progress>
-            </div>
-
-            <!-- Input demo -->
-            <input type="range" min="0" max="20" value="5" class="fo-input my-2">
-            <input class="fo-input my-2" type="text" placeholder="Type something...">
-            <select class="fo-select my-2">
-                <optgroup label="Mammals">
-                    <option value="dog">Dog</option>
-                    <option value="cat">Cat</option>
-                </optgroup>
-            </select>
-            <textarea class="fo-input my-2" rows="5" placeholder="Type something..."></textarea>
-        </div>
-
-        <!-- INV -->
-        <div id="inv-section" class="section bg-pb fg-pb fo-terminal fo-glow p-4 w-full max-w-3xl text-center" style="display:none;">
-            <p>Benvenuto nella sezione INVENTARIO!</p>
-            <ul class="fo-list fg-pb fo-glow">
-                <li>Minigun</li>
-                <li>Plasma Rifle</li>
-                <li>Missile Launcher</li>
-            </ul>
-        </div>
-
-        <!-- DATA -->
-        <div id="data-section" class="section bg-pb fg-pb fo-terminal fo-glow p-4 w-full max-w-3xl text-center" style="display:none;">
-            <p>Benvenuto nella sezione DATA / Terminali!</p>
-            <p>Qui puoi aggiungere quest, NPC e terminali.</p>
-        </div>
-
-        <!-- RADIO -->
-        <div id="radio-section" class="section bg-pb fg-pb fo-terminal fo-glow p-4 w-full max-w-3xl text-center" style="display:none;">
-            <p>Benvenuto nella sezione RADIO!</p>
-            <audio controls class="my-2">
-                <source src="audio/station1.mp3" type="audio/mpeg">
-                Il tuo browser non supporta l'elemento audio.
-            </audio>
-        </div>
-
-    </main>
-
-    <!-- SCRIPT TAB -->
-    <script>
-        const tabs = document.querySelectorAll('.fo-tab');
-        const sections = {
-            'stat': document.getElementById('stat-section'),
-            'inv': document.getElementById('inv-section'),
-            'data': document.getElementById('data-section'),
-            'radio': document.getElementById('radio-section')
-        };
-
-        tabs.forEach(tab => {
-            tab.addEventListener('click', () => {
-                // Aggiorna tab attivo
-                tabs.forEach(t => t.classList.remove('fo-tab-active'));
-                tab.classList.add('fo-tab-active');
-
-                // Mostra solo la sezione selezionata
-                const key = tab.textContent.toLowerCase();
-                Object.keys(sections).forEach(k => {
-                    sections[k].style.display = (k === key) ? 'block' : 'none';
-                });
-            });
-        });
-    </script>
-
-</body>
-</html>
+<main class="p-4 bg-stone-900 space-y-4 bg-terminal">
+  <div class="p-1 flex gap-2">
+      <h2 class="text-2xl font-bold fo-ui fg-pb fo-glow">AP 100/100</h2>
+      <h2 class="text-2xl font-bold fo-ui fg-pb fo-blue fo-glow">AP 100/100</h2>
+      <h2 class="text-2xl font-bold fo-ui fg-pb fo-amber fo-glow">AP 100/100</h2>
+      <h2 class="text-2xl font-bold fo-ui fg-pb fo-white fo-glow">AP 100/100</h2>
+  </div>
+  <div class="text-lg fo-terminal bg-pb fg-pb fo-glow p-1">
+      <p>Welcome to Fallout.css! This is a simple page.</p>
+  </div>
+  <div class="text-lg fo-terminal bg-pb fg-pb fo-blue fo-glow p-1">
+      <p>Welcome to Fallout.css! This is a simple page.</p>
+  </div>
+  <div class="text-lg fo-terminal bg-pb fg-pb fo-amber fo-glow p-1">
+      <p>Welcome to Fallout.css! This is a simple page.</p>
+  </div>
+  <div class="text-lg fo-terminal bg-pb fg-pb fo-white fo-glow p-1">
+      <p>Welcome to Fallout.css! This is a simple page.</p>
+  </div>
+  <div role="tablist" class="fo-tabs fo-ui fo-glow">
+      <a role="tab" class="fo-tab">Stat</a>
+      <a role="tab" class="fo-tab fo-tab-active">Inv</a>
+      <a role="tab" class="fo-tab">Data</a>
+      <a role="tab" class="fo-tab">Map</a>
+      <a role="tab" class="fo-tab">Radio</a>
+  </div>
+  <button class="fo-btn fo-shadow">Button</button>
+  <button class="fo-btn fo-blue fo-shadow">Button</button>
+  <button class="fo-btn fo-amber fo-shadow">Button</button>
+  <button class="fo-btn fo-white fo-shadow">Button</button>
+  <br>
+  <ul class="fo-list fg-pb fo-glow">
+      <li>Minigun</li>
+      <li>Plasma Rifle</li>
+  </ul>
+  <progress
+      class="w-56 fo-progress fo-shadow"
+      value="5"
+      max="10"></progress>
+  <br>
+  <progress
+      class="w-56 fo-progress fo-blue fo-shadow"
+      value="5"
+      max="10"></progress>
+  <br>
+  <progress
+      class="w-56 fo-progress fo-amber fo-shadow"
+      value="5"
+      max="10"></progress>
+  <br>
+  <progress
+      class="w-56 fo-progress fo-white fo-shadow"
+      value="5"
+      max="10"></progress>
+  <br>
+</main>
