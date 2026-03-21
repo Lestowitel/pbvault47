@@ -15,17 +15,13 @@
     <div id="output" class="whitespace-pre-wrap leading-tight"> 
     </div></div>
         <script>
-const text = `Welcome to ROBCO Industries (TM) Termlink</p>
-        <p>Password Required</p>
-        <p>Attempts Remaining: ■ ■ ■ ■</p>
-        <div class="flex flex-col gap-2">
-                <p>
-                   LOG GIORNO 1
+const text = `Welcome to ROBCO Industries (TM) Termlink
+                         LOG GIORNO 1
 
 Fine turno lavorativo registrato per i soggetti:
 ASH
 IAN
-ILVIA
+LIVIA
 
 Anomalia rilevata: interferenze non identificate sui terminali personali.
 
@@ -56,7 +52,43 @@ Unità robotica: ASSAULTRON, modello sconosciuto.
 Stato iniziale:
 Unità non ostile.
 Sovrintendente RICHARD neutralizzato temporaneamente
-(trauma non letale).
+(trauma non letale).ASH ha effettuato accesso ai sistemi dell’unità robotica.
+Risultato:
+Protocolli di attacco disattivati.
+Routine emotive non conformi a IA militare standard rilevate.
+
+Frasi ripetute dall’unità:
+"Il cielo della superficie è bellissimo."
+"Vorrei vederlo."
+
+ERRORE LOGICO
+SOTTOPROCESSI EMOTIVI ATTIVI
+
+Situazione critica:
+IAN stabilizza la sorella tramite STIMPACK.
+Sovrintendente RICHARD riportato in condizioni stabili.
+Confermato stato inerme dell’ASSAULTRON
+dopo perdita di un arto.
+
+AVVISO FINALE
+
+Il Sovrintendente segnala una trasmissione in arrivo
+dal proprio Pip-Boy.
+
+Fonte del segnale:
+PORTA PRINCIPALE DEL VAULT
+
+Stato:
+APERTA
+
+Responsabile rilevato:
+CANIS LUPUS FAMILIARIS (?)
+
+CLASSIFICAZIONE: NON DETERMINATA
+
+END LOG
+SYSTEM STANDBY
+
 `;
 
 const output = document.getElementById("output");
@@ -72,7 +104,7 @@ function typeWriter() {
         // auto scroll
         terminal.scrollTop = terminal.scrollHeight;
 
-        setTimeout(typeWriter, 10); // velocità (più basso = più veloce)
+        setTimeout(typeWriter, 20); // velocità (più basso = più veloce)
     }
 }
 
